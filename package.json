@@ -2,11 +2,13 @@
   "name": "cli-",
   "version": "1.0.0",
   "bin": {
-    "release": "bin/release.js"
+    "release": "bin/release.js",
+    "gcmc": "bin/gcmc.js"
   },
   "dependencies": {
     "@fluent/bundle": "^0.16.0",
     "@octokit/rest": "^18.0.3",
+    "clipboardy": "^2.3.0",
     "date-fns": "^2.15.0",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
