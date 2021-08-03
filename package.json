@@ -1,0 +1,11 @@
+{
+  "name": "joolja",
+  "version": "0.0.0",
+  "bin": {
+    "joolja": "./bin/joolja.js"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "image-size": "^1.0.0"
+  }
+}
