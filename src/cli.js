@@ -10,6 +10,7 @@ async function cli() {
     .option('-j, --json', 'json을 출력합니다')
     .option('-s, --scss', 'scss를 출력합니다')
     .option('-w, --watch', 'watch 모드를 활성화합니다')
+    .option('-o, --out-dir <path>', 'sass, json 저장경로')
 
   program.parse(process.argv)
 
