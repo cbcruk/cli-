@@ -1,11 +1,13 @@
-const fg = require('fast-glob')
-const { sizeOf } = require('./p')
+import fg from 'fast-glob'
+import { sizeOf } from './p'
+import { Images } from './types'
 
-async function size() {
+async function size(): Promise<Images> {
   const entries = await fg('*.(jpg|png)')
   const result = await entries.reduce(async (prev, current) => {
     const previous = await prev
-    const [fileName] = current.match(/[^\\/:*?"<>|\r\n]+$/)
+    const matched = current.match(/[^\\/:*?"<>|\r\n]+$/)
+    const fileName = matched ? matched[0] : ''
     const snakeCaseName = fileName
       .replace(/.jpg|.png/, '')
       .replace(/\s/g, '_')
@@ -21,4 +23,4 @@ async function size() {
   return result
 }
 
-module.exports = size
+export default size

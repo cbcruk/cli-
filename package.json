@@ -5,6 +5,7 @@
     "joolja": "./bin/joolja.js"
   },
   "dependencies": {
+    "@types/chokidar": "^2.1.3",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.2",
     "commander": "^8.1.0",
@@ -15,9 +16,21 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "dev": "nodemon ./src/cli.js"
+    "build": "tsup"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "@types/node": "^16.11.13",
+    "eslint": "^7.32.0",
+    "tsup": "^5.11.6",
+    "typescript": "^4.5.4"
+  },
+  "tsup": {
+    "entry": [
+      "src/cli.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "minify": true
   }
 }

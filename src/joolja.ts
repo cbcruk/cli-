@@ -1,11 +1,12 @@
-const { program } = require('commander')
-const chokidar = require('chokidar')
-const package = require('../package.json')
-const print = require('./print')
+import { program } from 'commander'
+import chokidar from 'chokidar'
+import print from './print'
+import pkg from '../package.json'
+import { Options } from './types'
 
-async function cli() {
+async function joolja() {
   program
-    .version(package.version)
+    .version(pkg.version)
     .description('이미지 크기를 측정하는 줄자')
     .option('-j, --json', 'json을 출력합니다')
     .option('-s, --scss', 'scss를 출력합니다')
@@ -19,7 +20,7 @@ async function cli() {
     return
   }
 
-  const options = program.opts()
+  const options = program.opts<Options>()
 
   print(options)
 
@@ -31,4 +32,4 @@ async function cli() {
   }
 }
 
-module.exports = cli
+export default joolja

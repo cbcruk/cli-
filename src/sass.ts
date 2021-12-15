@@ -1,4 +1,6 @@
-function variables(data) {
+import { Images } from './types'
+
+export function variables(data: Images) {
   const body = Object.keys(data)
     .map((key) => {
       const { width, height } = data[key]
@@ -10,7 +12,7 @@ function variables(data) {
   return `$images: (${body});`
 }
 
-function sprite(data) {
+export function sprite(data: Images) {
   const result = Object.keys(data)
     .map((key) => {
       const item = data[key]
@@ -26,6 +28,3 @@ function sprite(data) {
 
   return result
 }
-
-module.exports.sprite = sprite
-module.exports.variables = variables

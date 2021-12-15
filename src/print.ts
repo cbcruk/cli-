@@ -1,12 +1,13 @@
-const path = require('path')
-const chalk = require('chalk')
-const { write } = require('./p')
-const { variables, sprite } = require('./sass')
-const size = require('./size')
+import path from 'path'
+import chalk from 'chalk'
+import { write } from './p'
+import { variables, sprite } from './sass'
+import size from './size'
+import { Options } from './types'
 
-async function print(options) {
+async function print(options: Options) {
   const result = await size()
-  const file = (name) => path.join(options.outDir || '', name)
+  const file = (name: string) => path.join(options.outDir || '', name)
 
   if (options.json) {
     await write(file('result.json'), JSON.stringify(result))
@@ -20,4 +21,4 @@ async function print(options) {
   console.log(chalk`{cyanBright 작업이 완료 되었습니다.}`)
 }
 
-module.exports = print
+export default print
