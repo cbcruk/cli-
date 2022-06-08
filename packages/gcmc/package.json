@@ -1,0 +1,18 @@
+{
+  "name": "@cbcruk/cli-gcmc",
+  "version": "1.0.0",
+  "bin": {
+    "gcmc": "bin/gcmc.js"
+  },
+  "scripts": {
+    "dev": ""
+  },
+  "dependencies": {
+    "clipboardy": "^2.3.0",
+    "prompts": "^2.3.2",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  }
+}

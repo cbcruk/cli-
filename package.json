@@ -1,20 +1,8 @@
 {
   "name": "cli-",
   "version": "1.0.0",
-  "bin": {
-    "release": "bin/release.js",
-    "gcmc": "bin/gcmc.js"
-  },
-  "dependencies": {
-    "@fluent/bundle": "^0.16.0",
-    "@octokit/rest": "^18.0.3",
-    "clipboardy": "^2.3.0",
-    "date-fns": "^2.15.0",
-    "dotenv": "^8.2.0",
-    "lodash": "^4.17.15",
-    "ora": "^4.0.5",
-    "prompts": "^2.3.2",
-    "semver": "^7.3.2"
+  "scripts": {
+    "dev": "pnpm run -r --parallel --filter \"./packages/**\" dev"
   },
   "devDependencies": {
     "eslint": "^7.5.0"
