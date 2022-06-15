@@ -1,0 +1,11 @@
+{
+  "name": "@cli-/tsconfig",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "base.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

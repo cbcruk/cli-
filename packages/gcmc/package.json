@@ -1,5 +1,5 @@
 {
-  "name": "@cbcruk/cli-gcmc",
+  "name": "@cbcruk/gcmc-cli",
   "version": "1.0.0",
   "bin": {
     "gcmc": "bin/gcmc.js"

@@ -1,5 +1,5 @@
 {
-  "name": "@cbcruk/cli-release",
+  "name": "@cbcruk/release-cli",
   "version": "1.0.0",
   "bin": {
     "release": "bin/release.js"
