@@ -1,8 +1,9 @@
-const prompts = require('prompts')
-const clipboardy = require('clipboardy')
-const data = require('./data.js')
+import prompts from 'prompts'
+import clipboardy from 'clipboardy'
+import data from './data'
+import dotenv from 'dotenv'
 
-require('dotenv').config()
+dotenv.config()
 
 async function main() {
   const { emoji, message } = await prompts([
@@ -33,4 +34,4 @@ async function main() {
   await clipboardy.write(`${emoji} ${message}`)
 }
 
-module.exports = main
+export default main

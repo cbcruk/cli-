@@ -1,18 +1,31 @@
 {
   "name": "@cbcruk/gcmc-cli",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "bin": {
-    "gcmc": "bin/gcmc.js"
-  },
-  "scripts": {
-    "dev": ""
+    "joolja": "./bin/gcmc.js"
   },
   "dependencies": {
     "clipboardy": "^2.3.0",
     "prompts": "^2.3.2",
     "dotenv": "^8.2.0"
   },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
   "devDependencies": {
-    "eslint": "^7.5.0"
+    "@cli-/tsconfig": "*",
+    "eslint": "^7.32.0",
+    "tsup": "^5.11.6",
+    "typescript": "^4.5.4"
+  },
+  "tsup": {
+    "entry": [
+      "src/cli.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "minify": true
   }
 }

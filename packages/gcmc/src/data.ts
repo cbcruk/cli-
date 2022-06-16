@@ -50,4 +50,4 @@ const data = rawData
     }
   })
 
-module.exports = data
+export default data
