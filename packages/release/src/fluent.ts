@@ -1,6 +1,6 @@
-const { FluentBundle, FluentResource } = require('@fluent/bundle')
+import { FluentBundle, FluentResource } from '@fluent/bundle'
 
-const bundle = new FluentBundle()
+const bundle = new FluentBundle('ko-KR')
 const resource = new FluentResource(`
 common-pending = 요청중...
 release-type-choice1 = release-type-choice1
@@ -14,8 +14,6 @@ confirm-message = confirm-message
 
 bundle.addResource(resource)
 
-function getValue(key) {
-  return bundle.getMessage(key).value
+export function getValue(key: string) {
+  return bundle.getMessage(key)?.value ?? ''
 }
-
-exports.getValue = getValue

@@ -1,8 +1,17 @@
-const { getValue } = require('./fluent')
-const { REPOS } = require('./constants')
+import { getValue } from './fluent'
+import { REPOS } from './constants'
+import { PromptObject } from 'prompts'
+
+export enum QuestionsKeys {
+  ReleaseType = 'release_type',
+  Repo = 'repo',
+  TagName = 'tag_name',
+  Date = 'date',
+  Confirm = 'confirm',
+}
 
 const questions = {
-  release_type: {
+  [QuestionsKeys.ReleaseType]: {
     type: 'select',
     name: 'release_type',
     choices: [
@@ -17,7 +26,7 @@ const questions = {
     initial: 0,
     message: getValue('release-type-message'),
   },
-  repo: {
+  [QuestionsKeys.Repo]: {
     type: 'select',
     name: 'repo',
     message: getValue('repo-message'),
@@ -29,25 +38,25 @@ const questions = {
       }
     }),
   },
-  tag_name: {
+  [QuestionsKeys.TagName]: {
     type: 'select',
     name: 'tag_name',
     message: getValue('tag-name-message'),
     initial: 1,
   },
-  date: {
+  [QuestionsKeys.Date]: {
     type: 'date',
     name: 'date',
     message: getValue('date-message'),
     initial: new Date(),
     mask: 'YYYY-MM-DD',
   },
-  confirm: {
+  [QuestionsKeys.Confirm]: {
     type: 'confirm',
     name: 'confirm',
     message: getValue('confirm-message'),
     initial: true,
   },
-}
+} as Record<QuestionsKeys, PromptObject>
 
-module.exports = questions
+export default questions

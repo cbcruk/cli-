@@ -1,10 +1,10 @@
-const semver = require('semver')
-const ora = require('ora')
-const { SEMVER_RELEASE_TYPE } = require('./constants')
-const { getLatestReleaseTagName } = require('./octokit')
-const { getValue } = require('./fluent')
+import semver from 'semver'
+import ora from 'ora'
+import { SEMVER_RELEASE_TYPE } from './constants'
+import { getLatestReleaseTagName } from './octokit'
+import { getValue } from './fluent'
 
-async function getTagNames(repo) {
+async function getTagNames(repo: string) {
   const spinner = ora(`${getValue('common-pending')}\n`).start()
 
   try {
@@ -26,4 +26,4 @@ async function getTagNames(repo) {
   }
 }
 
-module.exports = getTagNames
+export default getTagNames

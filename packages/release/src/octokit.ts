@@ -1,12 +1,16 @@
-const { Octokit } = require('@octokit/rest')
+import { Octokit } from '@octokit/rest'
+
+type RequestParameters = {
+  repo: string
+}
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_OAUTH_TOKEN,
 })
 
-const owner = process.env.OWNER
+const owner = process.env.OWNER ?? ''
 
-async function getPulls(repo) {
+export async function getPulls(repo: RequestParameters['repo']) {
   const { data } = await octokit.pulls.list({
     owner,
     repo,
@@ -18,7 +22,7 @@ async function getPulls(repo) {
   return data
 }
 
-async function getLatestReleaseTagName(repo) {
+export async function getLatestReleaseTagName(repo: RequestParameters['repo']) {
   const { data } = await octokit.repos.getLatestRelease({
     owner,
     repo,
@@ -27,7 +31,7 @@ async function getLatestReleaseTagName(repo) {
   return data.tag_name
 }
 
-async function getMilestones(repo) {
+export async function getMilestones(repo: RequestParameters['repo']) {
   const { data } = await octokit.issues.listMilestones({
     owner,
     repo,
@@ -36,7 +40,17 @@ async function getMilestones(repo) {
   return data
 }
 
-async function createRelease({ repo, tag_name, name, body }) {
+export async function createRelease({
+  repo,
+  tag_name,
+  name,
+  body,
+}: {
+  repo: RequestParameters['repo']
+  tag_name: string
+  name: string | undefined
+  body: string | undefined
+}) {
   return octokit.repos.createRelease({
     owner,
     repo,
@@ -47,8 +61,4 @@ async function createRelease({ repo, tag_name, name, body }) {
   })
 }
 
-module.exports = octokit
-module.exports.getPulls = getPulls
-module.exports.getLatestReleaseTagName = getLatestReleaseTagName
-module.exports.getMilestones = getMilestones
-module.exports.createRelease = createRelease
+export default octokit

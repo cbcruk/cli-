@@ -1,9 +1,10 @@
-const prompts = require('prompts')
-const questions = require('./questions')
-const getTagNames = require('./getTagNames')
-const submit = require('./submit')
+import prompts from 'prompts'
+import dotenv from 'dotenv'
+import questions from './questions'
+import getTagNames from './getTagNames'
+import submit from './submit'
 
-require('dotenv').config()
+dotenv.config()
 
 async function main() {
   const { release_type, repo } = await prompts([
@@ -33,4 +34,4 @@ async function main() {
   })
 }
 
-module.exports = main
+export default main

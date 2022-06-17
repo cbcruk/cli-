@@ -2,7 +2,8 @@
   "name": "cli-",
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm run build && pnpm run -r --parallel --filter \"./packages/**\" dev"
+    "dev": "pnpm run build && pnpm run -r --parallel --filter \"./packages/**\" dev",
+    "build": "pnpm run -r build"
   },
   "devDependencies": {
     "eslint": "^7.5.0"

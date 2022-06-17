@@ -2,7 +2,7 @@
   "name": "@cbcruk/joolja-cli",
   "version": "0.0.0",
   "bin": {
-    "joolja": "./bin/joolja.js"
+    "joolja": "dist/cli.js"
   },
   "dependencies": {
     "@types/chokidar": "^2.1.3",

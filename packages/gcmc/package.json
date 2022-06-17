@@ -2,7 +2,7 @@
   "name": "@cbcruk/gcmc-cli",
   "version": "0.0.0",
   "bin": {
-    "joolja": "./bin/gcmc.js"
+    "gcmc": "dist/cli.js"
   },
   "dependencies": {
     "clipboardy": "^2.3.0",

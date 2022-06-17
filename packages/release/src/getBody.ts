@@ -1,11 +1,17 @@
-const { groupBy, keys } = require('lodash')
-const { getPulls } = require('./octokit')
+import { groupBy, keys } from 'lodash'
+import { getPulls } from './octokit'
 
-async function getBody({ repo, milestone }) {
+async function getBody({
+  repo,
+  milestone,
+}: {
+  repo: string
+  milestone: string
+}) {
   const data = await getPulls(repo)
   const pullsByUser = groupBy(
-    data.filter((d) => d.milestone.title === milestone),
-    (d) => d.user.login
+    data.filter((d) => d.milestone?.title === milestone),
+    (d) => d.user?.login
   )
   const users = keys(pullsByUser)
   const content = users.map(
@@ -18,4 +24,4 @@ async function getBody({ repo, milestone }) {
   return `${milestone}\n---\n${content}`
 }
 
-module.exports = getBody
+export default getBody
