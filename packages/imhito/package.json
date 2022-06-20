@@ -1,0 +1,31 @@
+{
+  "name": "@cbcruk/imhito-cli",
+  "version": "1.0.0",
+  "bin": {
+    "gcmc": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "puppeteer-core": "^13.5.2",
+    "tinyargs": "^0.1.4"
+  },
+  "devDependencies": {
+    "@cli-/tsconfig": "*",
+    "eslint": "^7.32.0",
+    "tsup": "^5.11.6",
+    "typescript": "^4.5.4"
+  },
+  "tsup": {
+    "entry": [
+      "src/cli.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "minify": true
+  }
+}
