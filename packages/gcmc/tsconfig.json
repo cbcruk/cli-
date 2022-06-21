@@ -1,0 +1,5 @@
+{
+  "extends": "@cli-/tsconfig/base.json",
+  "include": ["."],
+  "exclude": ["bin", "dist", "node_modules"]
+}
