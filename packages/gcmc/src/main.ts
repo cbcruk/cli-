@@ -1,11 +1,12 @@
 import prompts from 'prompts'
 import clipboardy from 'clipboardy'
-import data from './data'
 import dotenv from 'dotenv'
+import { getDataFromCache } from './getDataFromCache'
 
 dotenv.config()
 
 async function main() {
+  const data = await getDataFromCache()
   const { emoji, message } = await prompts([
     {
       type: 'autocomplete',
@@ -30,7 +31,6 @@ async function main() {
       message: '메시지를 입력해 주세요',
     },
   ])
-
   await clipboardy.write(`${emoji} ${message}`)
 }
 
